@@ -54,6 +54,19 @@ public class User {
 		this.role = role;
 		this.category = category;
 	}
+	
+	// constructor for creating user on signup, minus the id
+	public User(String firstName, String lastName, String username, String password, String email,
+			Role role, Category category) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.role = role;
+		this.category = category;
+	}
 
 	@Override
 	public String toString() {

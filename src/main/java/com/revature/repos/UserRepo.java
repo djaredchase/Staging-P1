@@ -18,4 +18,10 @@ public interface UserRepo extends JpaRepository<User, Integer> {
 	Optional<List<User>> getUsersByCategory(Optional<Category> category);
 	
 	Optional<List<User>> getUsersByRoleAndCategory(Optional<Role> role, Optional<Category> category);
+	
+	Optional<User> getUserByUsernameOrEmail(String username, String email);
+	
+	Boolean existsByUsername(String username);
+	
+	Boolean existsByEmail(String email);
 }
