@@ -29,11 +29,6 @@ public class PostService {
 		return postRepo.getPostsByAuthor(newUser);
 	}
 	
-	public Optional<List<Post>> getPostsBySaver(Integer savedBy) {
-		Optional<User> newUser = userRepo.findById(savedBy);
-		return postRepo.getPostsBySavedBy(newUser);
-	}
-	
 	public Post savePost(Post post) {
 		return postRepo.save(post);
 	}

@@ -1,18 +1,27 @@
 package com.revature.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 
 @Entity
 public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "user_id")
 	private Integer id;
 	
 	@Column(name = "first_name")
@@ -35,6 +44,8 @@ public class User {
 	@JoinColumn(name = "category_id")
 	private Category category;
 	
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "savedUsers")
+	private List<Post> savedPosts = new ArrayList<>();
 	
 
 	public User() {
@@ -204,5 +215,15 @@ public class User {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
+
+	public List<Post> getSavedPosts() {
+		return savedPosts;
+	}
+
+	public void setSavedPosts(List<Post> savedPosts) {
+		this.savedPosts = savedPosts;
+	}
+	
+	
 	
 }

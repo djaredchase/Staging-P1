@@ -33,11 +33,6 @@ public class PostController {
 		return postService.getPostsByAuthor(userId);
 	}
 	
-	@GetMapping("/savedBy/{savedById}")
-	public Optional<List<Post>> getPostsBySaver(@PathVariable Integer savedById) {
-		return postService.getPostsBySaver(savedById);
-	}
-	
 	@PostMapping
 	public Post savePost(@RequestBody Post post) {
 		return postService.savePost(post);

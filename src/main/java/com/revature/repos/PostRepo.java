@@ -15,6 +15,4 @@ public interface PostRepo extends JpaRepository<Post, Integer> {
 	List<Post> getAllPostsByOrderByPostedDateDesc();
 	
 	Optional<List<Post>> getPostsByAuthor(Optional<User> author);
-	
-	Optional<List<Post>> getPostsBySavedBy(Optional<User> savedBy);
 }
